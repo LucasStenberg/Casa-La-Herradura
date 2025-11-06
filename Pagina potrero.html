@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casa La Herradura - Potrero de Garay</title>
+  <meta name="description" content="Alquiler vacacional con pileta para 8 personas. A 200m del Lago Los Molinos, Córdoba."/>
+  
+  <!-- FAVICON: HERRADURA (reemplazado) -->
+<!-- Para navegadores que no soporten SVG, agrega PNG como fallback -->
+<link rel="icon" href="https://i.imgur.com/c417qkV.png" type="image/png" sizes="32x32">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- LightGallery -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lg-zoom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lg-thumbnail.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      font-family:'Segoe UI',sans-serif; line-height:1.8; color:#2c3e50; 
+      background:#0f1f36; overflow-x:hidden;
+    }
+    header { 
+      /* IMAGEN DE FONDO CON + BRILLO */
+      background: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+        url('https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/341e46a8-77c1-4d56-b927-77099f1a78f1.jpeg?im_w=1200') 
+        center/cover no-repeat;
+      filter: brightness(1.08) contrast(1.05); /* + BRILLO SUAVE */
+      height:100vh; color:white; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    }
+    header h1 { font-size:4.2rem; margin-bottom:0.8rem; text-shadow:0 4px 20px rgba(0,0,0,0.9); letter-spacing:1px; }
+    header p { font-size:1.4rem; max-width:800px; margin:1rem auto; opacity:0.9; }
+    .badge { 
+      background:#c0392b; color:white; padding:12px 32px; border-radius:50px; font-weight:600; font-size:1rem; margin-top:1.2rem; 
+      box-shadow:0 5px 18px rgba(192,57,43,0.4); letter-spacing:0.5px;
+    }
+    .btn { 
+      display:inline-block; padding:16px 42px; color:white; text-decoration:none; border-radius:50px; font-weight:600; font-size:1.1rem; transition:0.3s; box-shadow:0 6px 22px rgba(0,0,0,0.3); margin:0.7rem;
+    }
+    .btn.consultar { background:#0f1f36; border:2px solid #c0392b; }
+    .btn.consultar:hover { background:#c0392b; transform:translateY(-4px); }
+    .btn.airbnb { background:#ff5a5f; }
+    .btn.airbnb:hover { background:#e14d52; }
+    section { padding:6rem 8%; }
+    .container { max-width:1400px; margin:0 auto; }
+    h2 { 
+      text-align:center; font-size:2.8rem; margin-bottom:2.8rem; color:#ffffff; position:relative; font-weight:300; letter-spacing:1px;
+    }
+    h2::after { 
+      content:''; width:110px; height:4px; background:#c0392b; display:block; margin:18px auto 0; border-radius:2px; 
+    }
+    .highlight { 
+      background:white; padding:2.5rem; border-radius:22px; text-align:center; font-size:1.35rem; font-weight:500; color:#2c3e50; 
+      margin:3rem auto; max-width:1000px; box-shadow:0 10px 30px rgba(0,0,0,0.15); border-left:5px solid #c0392b;
+    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:2.2rem; margin-top:2.5rem; }
+    .card { 
+      background:white; padding:2.5rem; border-radius:22px; text-align:center; 
+      box-shadow:0 10px 30px rgba(0,0,0,0.15); transition:0.4s; border:1px solid rgba(192,57,43,0.2);
+    }
+    .card:hover { transform:translateY(-10px); box-shadow:0 18px 40px rgba(0,0,0,0.22); }
+    .card i { font-size:3.5rem; color:#c0392b; margin-bottom:1.3rem; }
+    .card h3 { color:#2c3e50; margin-bottom:0.6rem; font-size:1.35rem; font-weight:500; }
+    .card p { color:#555; font-size:1rem; }
+
+    .gallery { 
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:2.5rem; margin-top:2.5rem; 
+    }
+    .gallery a { 
+      display:block; border-radius:22px; overflow:hidden; 
+      box-shadow:0 20px 50px rgba(0,0,0,0.4); 
+      transition:0.4s; position:relative; cursor:pointer;
+    }
+    .gallery a:hover { 
+      transform:translateY(-10px); 
+      box-shadow:0 30px 70px rgba(0,0,0,0.55); 
+    }
+    .gallery a img { 
+      width:100%; height:300px; object-fit:cover; transition:0.4p; 
+    }
+    .gallery a:hover img { transform:scale(1.08); }
+
+    .price-box { background:white; padding:2.5rem; border-radius:22px; text-align:center; 
+      box-shadow:0 10px 30px rgba(0,0,0,0.15); border:1px solid rgba(192,57,43,0.2);
+    }
+    .form-section { background:white; padding:5rem 8%; border-radius:26px; margin:3.5rem 0; box-shadow:0 12px 35px rgba(0,0,0,0.15); }
+    .form-section h2 { color:#2c3e50; }
+    .form-section h2::after { background:#c0392b; }
+    form { max-width:720px; margin:2.5rem auto; display:grid; gap:1.5rem; }
+    input, textarea, button { padding:18px; border:1px solid #ddd; border-radius:14px; font-size:1.05rem; }
+    input, textarea { background:#f9f9f9; }
+    button { background:#c0392b; color:white; font-weight:600; cursor:pointer; transition:0.3s; }
+    button:hover { background:#a93226; }
+    .whatsapp-float {
+      position:fixed; width:72px; height:72px; bottom:32px; right:32px; 
+      background:#25d366; color:white; border-radius:50%; text-align:center; 
+      font-size:40px; box-shadow:0 8px 28px rgba(0,0,0,0.4); z-index:1000; 
+      display:flex; align-items:center; justify-content:center; transition:0.3s;
+    }
+    .whatsapp-float:hover { background:#128c7e; transform:scale(1.2); }
+    footer { background:#0a1526; color:#aaa; text-align:center; padding:4rem; font-size:0.95rem; }
+    footer a { color:#c0392b; text-decoration:none; font-weight:500; }
+    .payment-methods { margin-top:1.5rem; font-size:0.9rem; color:#888; }
+    .payment-methods i { color:#c0392b; margin-right:6px; }
+    .descripcion { text-align:center; max-width:900px; margin:0 auto 3.5rem; font-size:1.2rem; color:#ffffff; }
+    .descripcion em { display:block; margin-top:1.8rem; font-style:italic; color:#ffffff; font-size:1.15rem; }
+    .ubicacion-text { text-align:center; color:#ffffff; margin-bottom:2.2rem; font-weight:500; font-size:1.1rem; }
+
+    @media (max-width:768px) { 
+      header h1 { font-size:2.8rem; } 
+      .gallery a img { height:260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/message/EXARQQMG7J3OD1" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>Casa La Herradura</h1>
+      <p>Para 8 personas · Pileta · A 200m del Lago</p>
+      <div class="badge">¡Verano 2026 - Reservas abiertas!</div>
+      <a href="#reserva" class="btn consultar">Consultar</a>
+      <a href="https://www.airbnb.com.ar/rooms/1261994770859383862" target="_blank" class="btn airbnb">Airbnb</a>
+    </div>
+  </header>
+
+  <!-- MENSAJE MARKETINERO -->
+  <div class="highlight" data-aos="fade-up">
+    <strong>¡Tu verano en Córdoba empieza aca!</strong><br>
+    Pileta, atardeceres, asados y paz total. 
+    <br><em>Reserva antes del 20/12 y asegurá tu lugar.</em>
+  </div>
+
+  <!-- DESCRIPCIÓN -->
+  <section id="descripcion">
+    <div class="container">
+      <h2 data-aos="fade-down">Tu casa en Potrero de Garay</h2>
+<!-- ... (todo tu código anterior hasta el final del <p class="descripcion">) ... -->
+
+    <p class="descripcion" data-aos="fade-up">
+        <p class="descripcion" data-aos="fade-up">
+            <strong>Casa La Herradura</strong> es un alojamiento amplio y luminoso, ideal para familias o grupos de amigos. 
+            Con 3 habitaciones, capacidad para 8 personas, pileta privada, cochera cubierta y WiFi de alta velocidad. 
+            Ubicada a solo 200 metros del Lago Los Molinos y a 20 minutos en auto de Villa General Belgrano.
+            <em>"Un lugar para desconectar, disfrutar y crear recuerdos inolvidables."</em>
+          </p>
+        </div>
+      </section>
+    
+      <!-- NUEVA SECCIÓN: ¿QUÉ OFRECE ESTE LUGAR? (2 FILAS DE 4 ÍCONOS) -->
+      <section style="background:#0f1f36; padding:4rem 8%;">
+        <div class="container">
+          <h2 data-aos="fade-down" style="color:#ffffff; text-align:center; margin-bottom:2.5rem;">
+            ¿Qué ofrece este lugar?
+          </h2>
+    
+          <div class="grid">
+            <!-- PRIMERA FILA: Características principales -->
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+              <i class="fas fa-users" style="color:#c0392b;"></i>
+              <h3>8 Personas</h3>
+              <p>3 habitaciones cómodas, 2 baños</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-swimmer" style="color:#c0392b;"></i>
+              <h3>Pileta</h3>
+              <p>Privada, ideal para el verano</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+              <i class="fas fa-car" style="color:#c0392b;"></i>
+              <h3>Cochera</h3>
+              <p>Cubierta para 2 vehículos</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+              <i class="fas fa-wifi" style="color:#c0392b;"></i>
+              <h3>WiFi</h3>
+              <p>Gratis, alta velocidad</p>
+            </div>
+    
+            <!-- SEGUNDA FILA: Equipamiento completo -->
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+              <i class="fas fa-home" style="color:#c0392b;"></i>
+              <h3>Casa full equipada</h3>
+              <p>Lavarropas, horno, heladera, pava, microondas, vajilla y utensillos completos</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="600">
+              <i class="fas fa-fire" style="color:#c0392b;"></i>
+              <h3>Asador</h3>
+              <p>Parrilla cubierta</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="700">
+              <i class="fas fa-paw" style="color:#c0392b;"></i>
+              <h3>Mascotas</h3>
+              <p>Se permiten con previo aviso</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+              <i class="fas fa-tv" style="color:#c0392b;"></i>
+              <h3>Entretenimiento</h3>
+              <p>Smart TV 42" con cable</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- GALERÍA -->
+<section style="background:#162d4a; padding:6rem 8%;">
+    <div class="container">
+      <h2 data-aos="fade-down">Galería</h2>
+  
+      <div id="myGallery" class="gallery">
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/341e46a8-77c1-4d56-b927-77099f1a78f1.jpeg?im_w=1200" data-sub-html="Exterior">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/341e46a8-77c1-4d56-b927-77099f1a78f1.jpeg?im_w=1200" alt="Exterior">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/87b48ff0-f824-458e-ba61-40aa34f78832.jpeg?im_w=1200" data-sub-html="Pileta">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/87b48ff0-f824-458e-ba61-40aa34f78832.jpeg?im_w=1200" alt="Pileta">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/e41028e4-e9ee-44c6-9842-f71a9440acb4.jpeg?im_w=1200" data-sub-html="Pileta">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/e41028e4-e9ee-44c6-9842-f71a9440acb4.jpeg?im_w=1200" alt="Pileta">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/23e72cda-a089-4961-9e5b-3721cb2b6674.jpeg?im_w=1200" data-sub-html="Habitación">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/23e72cda-a089-4961-9e5b-3721cb2b6674.jpeg?im_w=1200" alt="Habitación">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/a852921f-4446-4318-83ec-5803f395f17d.jpeg?im_w=1200" data-sub-html="Habitación">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/a852921f-4446-4318-83ec-5803f395f17d.jpeg?im_w=1200" alt="Habitación">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/bc813842-0c0f-4602-a602-411b4c01bffa.jpeg?im_w=1200" data-sub-html="Habitación">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/bc813842-0c0f-4602-a602-411b4c01bffa.jpeg?im_w=1200" alt="Habitación">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/73bfdcb4-8d16-4405-8097-dba121ce3c11.jpeg?im_w=1200" data-sub-html="Comedor">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/73bfdcb4-8d16-4405-8097-dba121ce3c11.jpeg?im_w=1200" alt="Comedor">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/4cc1f747-6d92-4afc-831d-bf1deca7375b.jpeg?im_w=1200" data-sub-html="Interior">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/4cc1f747-6d92-4afc-831d-bf1deca7375b.jpeg?im_w=1200" alt="Interior">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/eacc4327-4097-4ec0-8524-e067d1fdc7e5.jpeg?im_w=1200" data-sub-html="Living">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/eacc4327-4097-4ec0-8524-e067d1fdc7e5.jpeg?im_w=1200" alt="Living">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/914b6092-bd91-4577-88d2-39eb0221c78d.jpeg?im_w=1200" data-sub-html="Cocina">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/914b6092-bd91-4577-88d2-39eb0221c78d.jpeg?im_w=1200" alt="Cocina">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/33123abf-3b28-4905-bd5a-9c698a126910.jpeg?im_w=1200" data-sub-html="Baño">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/33123abf-3b28-4905-bd5a-9c698a126910.jpeg?im_w=1200" alt="Baño">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/49aed78e-7daa-4118-ad70-f1094b68349d.jpeg?im_w=1200" data-sub-html="Habitación">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/49aed78e-7daa-4118-ad70-f1094b68349d.jpeg?im_w=1200" alt="Habitación">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/1513fb10-1459-4836-b814-9e077d09fce7.jpeg?im_w=1200" data-sub-html="Jardín">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/1513fb10-1459-4836-b814-9e077d09fce7.jpeg?im_w=1200" alt="Jardín">
+        </a>
+  
+        <a href="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/b5b73e07-1a2c-455e-a71d-d4568e00f158.jpeg?im_w=1200" data-sub-html="Terraza">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1261994770859383862/original/b5b73e07-1a2c-455e-a71d-d4568e00f158.jpeg?im_w=1200" alt="Terraza">
+        </a>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section>
+    <div class="container">
+      <h2 data-aos="fade-down">Ubicación</h2>
+      <p class="ubicacion-text" data-aos="fade-up">200m del lago · 20 min de Villa General Belgrano</p>
+      <iframe data-aos="fade-up" data-aos-delay="200"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3386.379!2d-64.5565803!3d-31.8264676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d495c6b2004ed%3A0x23986d84610b8fef!2sCasa%20La%20Herradura!5e0!3m2!1ses!2sar!4v1738812345678" 
+        width="100%" height="520" style="border:0; border-radius:22px; box-shadow:0 12px 35px rgba(0,0,0,0.2);" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios">
+    <div class="container">
+      <h2 data-aos="fade-down">Precios y Disponibilidad</h2>
+      <div class="price-box" data-aos="fade-up">
+        <p>Precios actualizados y reserva al instante:</p>
+        <a href="https://www.airbnb.com.ar/rooms/1261994770859383862" target="_blank" class="btn airbnb">Ver en Airbnb</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="reserva" class="form-section">
+    <div class="container">
+      <h2 data-aos="fade-down">Consultar o Reservar</h2>
+      <form action="https://formspree.io/f/tuemail@ejemplo.com" method="POST" data-aos="fade-up">
+        <input type="text" name="nombre" placeholder="Nombre y apellido" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="telefono" placeholder="Teléfono (WhatsApp)" />
+        <input type="date" name="checkin" required />
+        <input type="date" name="checkout" required />
+        <textarea name="mensaje" rows="4" placeholder="¿Cuántas personas? ¿Mascotas? ¿Dudas?"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <p style="text-align:center; margin-top:1.6rem; color:#666;">
+        Respondo en < 2h · También por 
+        <a href="https://wa.me/message/EXARQQMG7J3OD1" target="_blank" style="color:#25d366; font-weight:bold;">WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <strong>Casa La Herradura</strong> · Potrero de Garay, Córdoba</p>
+    <p>
+      <a href="https://wa.me/message/EXARQQMG7J3OD1" target="_blank">WhatsApp</a> · 
+      <a href="mailto:info@laherradura.com.ar">Email</a> · 
+      <a href="https://www.airbnb.com.ar/rooms/1261994770859383862" target="_blank">Airbnb</a>
+    </p>
+    <p class="payment-methods">
+      <i class="fas fa-money-bill-wave"></i> Efectivo · 
+      <i class="fas fa-credit-card"></i> Débito/Crédito · 
+      <i class="fas fa-exchange-alt"></i> Transferencias
+    </p>
+  </footer>
+
+<!-- SCRIPTS: orden recomendado -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- LightGallery scripts -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+<script>
+  // Esperamos a que el DOM esté listo para inicializar AOS y la galería
+  document.addEventListener('DOMContentLoaded', function () {
+    // Inicializar AOS
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 900, easing: 'ease-out-quart', once: true });
+    }
+
+    // Inicializar lightGallery sobre #myGallery
+    var galleryEl = document.getElementById('myGallery');
+    if (galleryEl && typeof lightGallery !== 'undefined') {
+      lightGallery(galleryEl, {
+        selector: 'a',
+        zoom: true,
+        thumbnail: true,
+        download: false,
+        fullScreen: true,
+        rotate: false,
+        // mobile settings opcionales
+        mobileSettings: {
+          controls: true,
+          showCloseIcon: true,
+          download: false
+        }
+      });
+    }
+
+    // Debug: muestra errores de inicialización en consola si algo falla
+    try {
+      // fuerza lectura rápida para detectar errores tempranos
+      console.log('AOS:', typeof AOS !== 'undefined', 'lightGallery:', typeof lightGallery !== 'undefined');
+    } catch (e) {
+      console.error(e);
+    }
+  });
+</script>
+</body>
+</html>
